@@ -84,7 +84,7 @@ ul li:not(:last-child)::after {
 
 .container {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   gap: 50px;
   margin-top: 50px;
 }
