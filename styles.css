@@ -1,0 +1,70 @@
+/* Your CSS goes here! */
+h1{
+  background: linear-gradient(90deg, cornflowerblue, royalblue);
+  font-weight: 700;
+  font-family: 'Dancing Script', cursive;
+  letter-spacing: 3px;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+h2{
+  background: linear-gradient(90deg, skyblue, darkblue);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+nav{
+    display: flex; 
+  justify-content: flex-end; 
+  }
+.black-white-button {
+    background-color: black; 
+    color: white; 
+    border-radius: 15px; 
+    padding: 10px 20px; 
+    text-align: center; 
+    text-decoration: none; 
+    display: inline-block; 
+    font-size: 16px; 
+    cursor: pointer; 
+  }
+code{
+    background-color: lightgrey;
+    padding: 5px;
+    border-radius: 15px;
+    color: black;
+    font-weight: bold;
+}
+ul {
+  list-style-type: none;
+  padding-left: 20px;
+  position: relative;
+}
+
+ul li {
+  position: relative;
+  padding-left: 20px;
+}
+
+ul li::before {
+  content: '';
+  position: absolute;
+  left: -20px;
+  top: 10px;
+  width: 15px;
+  height: 2px;
+  background-color: lightgray;
+}
+
+ul li:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: -20px;
+  top: 10px;
+  width: 2px;
+  height: 100%;
+  background-color: lightgrey;
+}
+
+
