@@ -1,0 +1,50 @@
+body {
+    font-family: Arial, sans-serif;
+}
+#tocButton {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+#tocContainer {
+    display: none;
+    position: fixed;
+    top: 50px;
+    right: 10px;
+    width: 300px;
+    max-height: 300px;
+    overflow-y: auto;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+#tocContainer a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    margin: 5px 0;
+}
+.toc-sub {
+    display: none;
+    padding-left: 15px;
+}
+.toc-h1::before {
+    content: "▶ ";
+    font-size: 0.9em;
+    cursor: pointer;
+}
+.expanded::before {
+    content: "▼ ";
+}
+.toc-h2 { padding-left: 15px; font-size: 0.9em; }
+.toc-h3 { padding-left: 30px; font-size: 0.85em; }
+.toc-h4 { padding-left: 45px; font-size: 0.8em; }
+.toc-h5 { padding-left: 60px; font-size: 0.75em; }
+.toc-h6 { padding-left: 75px; font-size: 0.7em; }

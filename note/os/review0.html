@@ -3,6 +3,8 @@
 <head>
 <title>review0.md</title>
 <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+<link href="../styles.css" rel="stylesheet"/>
+<script src="../toc.js"></script>
 
 <style>
 /* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
@@ -365,6 +367,8 @@ code {
           : 'default'
     });
   </script>
+<button id="tocButton">Table of Content</button>
+<div id="tocContainer"></div>
 <h1 id="introduction">Introduction</h1>
 <h2 id="an-operating-system-os-is">An operating system (OS) is:</h2>
 <ul>
@@ -521,7 +525,7 @@ chunks</li>
 <li>Efficiency: Sharing should not add overhead</li>
 <li>Control: OS should be able to intervene when required</li>
 </ul>
-<h3 id="problem1-how-can-we-ensure-user-process-cant-harm-others">Problem1: How can we ensure user process can’t harm others?</h3>
+<h2 id="problem1-how-can-we-ensure-user-process-cant-harm-others">Problem1: How can we ensure user process can’t harm others?</h2>
 <p>Solution: privilege levels supported by hardware (bit of status)</p>
 <ul>
 <li>User processes run in user mode (restricted mode)</li>
@@ -536,7 +540,7 @@ chunks</li>
 <li>Transfer from user-mode to kernel-mode (trap)</li>
 <li>Return from kernel-mode to user-mode (return-from-trap)</li>
 </ul>
-<h3 id="problem2-how-to-take-cpu-away">Problem2: how to take cpu away?</h3>
+<h2 id="problem2-how-to-take-cpu-away">Problem2: how to take cpu away?</h2>
 <p>Policy</p>
 <ul>
 <li>To decide which process to schedule when</li>
@@ -1178,6 +1182,7 @@ OS kills process if process loads/stores beyond bounds</li>
 <li>Each process must be allocated contiguously in physical memory: Must allocate memory that may not be used by process</li>
 <li>No partial sharing:  Cannot share parts of address space</li>
 </ul>
+
 
 </body>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
