@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>review0.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="introduction">Introduction</h1>
+<h2 id="an-operating-system-os-is">An operating system (OS) is:</h2>
+<ul>
+<li>a software layer to abstract away and manage details of hardware resources</li>
+<li>a set of utilities to simplify application development</li>
+<li>“all the code you didn’t write” in order to implement your application</li>
+</ul>
+<p>An OS <strong>mediates</strong> programs’ access to hardware resources</p>
+<ul>
+<li>Computation (CPU)</li>
+<li>Volatile storage (memory) and persistent storage (disk, etc.)</li>
+<li>Network communications (TCP/IP stacks, ethernet cards, etc.)</li>
+<li>Input/output devices (keyboard, display, sound card, etc.)</li>
+</ul>
+<p>The OS <strong>abstracts</strong> hardware into logical resources and well-defined
+interfaces to those resources</p>
+<ul>
+<li>processes (CPU, memory)</li>
+<li>files (disk)</li>
+<li>programs (sequences of instructions)</li>
+<li>sockets (network)</li>
+</ul>
+<h3 id="application-benefits">Application benefits</h3>
+<ul>
+<li>programming simplicity</li>
+<li>
+<ul>
+<li>see high-level abstractions (files) instead of low-level hardware details (device registers)</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>abstractions are reusable across many programs</li>
+</ul>
+</li>
+<li>portability (across machine configurations or architectures)</li>
+<li>
+<ul>
+<li>device independence: 3Com card or Intel card?</li>
+</ul>
+</li>
+</ul>
+<h3 id="user-benefits">User benefits</h3>
+<ul>
+<li>safety</li>
+<li>
+<ul>
+<li>program “sees” own virtual machine, thinks it owns computer</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>OS protects programs from each other</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>OS fairly multiplexes resources across programs</li>
+</ul>
+</li>
+<li>efficiency (cost and speed)</li>
+<li>
+<ul>
+<li>share one computer across many users</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>concurrent execution of multiple programs</li>
+</ul>
+</li>
+</ul>
+<h2 id="major-themes-in-os">Major Themes in OS</h2>
+<h3 id="virtualization">Virtualization</h3>
+<ul>
+<li>Taking physical hardware and making a software version that is sharable, easier to use, more powerful</li>
+<li>Examples:</li>
+<li>
+<ul>
+<li>CPU: we can run two programs at the same time</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>Memory: programs see a linear range of addresses but underlying DRAM is shared in 4kb
+chunks</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>Disk: we use files/folders, disk internally has blocks</li>
+</ul>
+</li>
+</ul>
+<h3 id="concurrency">Concurrency</h3>
+<ul>
+<li>Maintaining correctness when many things happen at once</li>
+<li>Examples:</li>
+<li>Code on 2 CPUs try to increment the same variable</li>
+</ul>
+<h3 id="persistence">Persistence</h3>
+<ul>
+<li>Keep data safe across system crashes/reboots</li>
+</ul>
+<h1 id="processes">Processes</h1>
+<ul>
+<li>Process is a stream of executing instructions and their “context”</li>
+<li>Threads: “Lightweight process”</li>
+<li>Use time-sharing in OS to switch between processes</li>
+</ul>
+<p>OS Scheduler</p>
+<ul>
+<li>Save context when process is paused</li>
+<li>Restore context on resumption</li>
+</ul>
+<svg width="400" height="300">
+	<!-- 状态圆圈 -->
+	<circle cx="100" cy="50" r="30" stroke="black" stroke-width="2" fill="white"/>
+	<text x="80" y="55" font-size="12">Running</text>
+	
+	<circle cx="250" cy="50" r="30" stroke="black" stroke-width="2" fill="white"/>
+	<text x="230" y="55" font-size="12">Ready</text>
+	
+	<circle cx="175" cy="200" r="30" stroke="black" stroke-width="2" fill="white"/>
+	<text x="155" y="205" font-size="12">Blocked</text>
+	
+	<!-- 箭头和文本 -->
+	<line x1="130" y1="50" x2="220" y2="50" stroke="black" stroke-width="2" marker-end="url(#arrow)"/>
+	<text x="150" y="40" font-size="12">Descheduled</text>
+	
+	<line x1="220" y1="55" x2="130" y2="55" stroke="black" stroke-width="2" marker-end="url(#arrow)"/>
+	<text x="150" y="70" font-size="12">Scheduled</text>
+	
+	<line x1="100" y1="80" x2="175" y2="170" stroke="black" stroke-width="2" marker-end="url(#arrow)"/>
+	<text x="90" y="140" font-size="12">I/O: initiate</text>
+	
+	<line x1="175" y1="170" x2="250" y2="80" stroke="black" stroke-width="2" marker-end="url(#arrow)"/>
+	<text x="200" y="140" font-size="12">I/O: done</text>
+	
+	<!-- 定义箭头标记 -->
+	<defs>
+		<marker id="arrow" markerWidth="6" markerHeight="6" refX="6" refY="3" orient="auto" markerUnits="strokeWidth">
+			<path d="M 0 0 L 6 3 L 0 6 z" fill="black"/>
+		</marker>
+	</defs>
+</svg>
+<p>Policy goals</p>
+<ul>
+<li>Virtualize CPU resource using processes</li>
+<li>Reschedule process for fairness? efficiency ?</li>
+</ul>
+<p>Mechanism goals</p>
+<ul>
+<li>Efficiency: Sharing should not add overhead</li>
+<li>Control: OS should be able to intervene when required</li>
+</ul>
+<h3 id="problem1-how-can-we-ensure-user-process-cant-harm-others">Problem1: How can we ensure user process can’t harm others?</h3>
+<p>Solution: privilege levels supported by hardware (bit of status)</p>
+<ul>
+<li>User processes run in user mode (restricted mode)</li>
+<li>OS runs in kernel mode (not restricted)</li>
+</ul>
+<p>process acess devices by <strong>System calls</strong> (function call implemented by OS)</p>
+<ul>
+<li>Separate user-mode from kernel mode for security</li>
+</ul>
+<p>Call kernel mode functions</p>
+<ul>
+<li>Transfer from user-mode to kernel-mode (trap)</li>
+<li>Return from kernel-mode to user-mode (return-from-trap)</li>
+</ul>
+<h3 id="problem2-how-to-take-cpu-away">Problem2: how to take cpu away?</h3>
+<p>Policy</p>
+<ul>
+<li>To decide which process to schedule when</li>
+<li>Decision-maker to optimize some workload performance metric</li>
+</ul>
+<p>Mechanism</p>
+<ul>
+<li>To switch between processes</li>
+<li>Low-level code that implements the decision</li>
+</ul>
+<p>Separation of policy and mechanism</p>
+<h3 id="how-does-dispatcher-get-control">How does dispatcher get control?</h3>
+<h4 id="option-1-cooperative-multi-tasking-trust-process-to-relinquish-cpu-through-traps">Option 1: Cooperative Multi-tasking: Trust process to relinquish CPU through traps</h4>
+<ul>
+<li>Examples: System call, page fault (access page not in main memory), or error
+(illegal instruction or divide by zero)</li>
+<li>Provide special yield() system call</li>
+<li>Disadvantages: Processes can misbehave(By avoiding all traps and performing no I/O, can take over entire machine
+Only solution: Reboot!)</li>
+</ul>
+<h4 id="option-2-timer-based-multi-tasking">Option 2: Timer-based Multi-tasking</h4>
+<p>Enter OS by enabling periodic alarm clock</p>
+<ul>
+<li>Hardware generates timer interrupt (CPU or separate chip) Example: Every 10ms</li>
+<li>User must not be able to mask timer interrupt</li>
+</ul>
+<h2 id="problem3-what-context-must-be-saved">PROBLEM3: WHAT CONTEXT MUST BE SAVED?</h2>
+<p>Dispatcher must track context of process when not running</p>
+<ul>
+<li>Save context in process control block (PCB) (or, process descriptor)</li>
+</ul>
+<p>What information is stored in PCB?</p>
+<ul>
+<li>PID</li>
+<li>Process state (I.e., running, ready, or blocked)</li>
+<li>Execution state (all registers, PC, stack ptr)</li>
+<li>Scheduling priority</li>
+<li>Accounting information (parent and child processes)</li>
+<li>Credentials (which resources can be accessed, owner)</li>
+<li>Pointers to other allocated resources (e.g., open files)</li>
+</ul>
+<p>Requires special hardware support</p>
+<ul>
+<li>Hardware saves process PC and PSR on interrupts</li>
+</ul>
+<h2 id="process-creation">Process Creation</h2>
+<p>Two ways to create a process</p>
+<ul>
+<li>
+<h2 id="build-a-new-empty-process-from-scratch">Build a new empty process from scratch</h2>
+</li>
+<li>
+<h3 id="steps">Steps</h3>
+</li>
+<li>
+<ul>
+<li>Load specified code and data into memory;
+Create empty call stack</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>Create and initialize PCB (make look like context-switch)</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>Put process on ready list</li>
+</ul>
+</li>
+<li>
+<h3 id="advantages-no-wasted-work">Advantages: No wasted work</h3>
+</li>
+<li>
+<h3 id="disadvantages-difficult-to-setup-process-correctly-and-to-express-all-possible-options">Disadvantages: Difficult to setup process correctly and to express all possible options</h3>
+</li>
+<li>
+<h2 id="copy-an-existing-process-and-change-it-appropriately">Copy an existing process and change it appropriately</h2>
+</li>
+<li>
+<h3 id="example-unix-fork-and-exec">Example: Unix <code>fork()</code> and <code>exec()</code></h3>
+</li>
+<li>
+<ul>
+<li><strong>Fork()</strong>: Clones calling process</li>
+</ul>
+</li>
+<li>
+<ul>
+<li><strong>Exec(char *file)</strong>: Overlays file image on calling process</li>
+</ul>
+</li>
+<li>
+<h3 id="fork">Fork()</h3>
+</li>
+<li>
+<ul>
+<li>Stop current process and save its state</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>Make copy of code, data, stack, and PCB</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>Add new PCB to ready list</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>Any changes needed to child process?</li>
+</ul>
+</li>
+<li>
+<h3 id="execchar-file">Exec(char *file)</h3>
+</li>
+<li>
+<p>Replace current data and code segments with those in specified file</p>
+</li>
+<li>
+<h3 id="advantages-flexible-clean-simple">Advantages: Flexible, clean, simple</h3>
+</li>
+<li>
+<h3 id="disadvantageswasteful-to-perform-copy-and-then-overwrite-of-memory">Disadvantages:Wasteful to perform copy and then overwrite of memory</h3>
+</li>
+</ul>
+<h1 id="scheduling">Scheduling</h1>
+<h2 id="process-vs-program">Process vs Program</h2>
+<p>Program is passive</p>
+<ul>
+<li>Code + data</li>
+</ul>
+<p>Process is running program</p>
+<ul>
+<li>stack, regs, program counter</li>
+</ul>
+<h3 id="the-os-sits-between-application-programs-and-the-hardware">The OS sits between application programs and the hardware</h3>
+<ul>
+<li>it mediates access and abstracts away ugliness</li>
+<li>programs request services via exceptions (traps or faults)</li>
+<li>devices request attention via interrupts</li>
+</ul>
+<h2 id="vocabulary">Vocabulary</h2>
+<p>Workload: set of jobs (arrival time, run_time)<br>
+Job : Current execution of a process</p>
+<ul>
+<li>Alternates between CPU and I/O</li>
+<li>Moves between ready and blocked queues</li>
+<li>Also a “task”</li>
+</ul>
+<p>Scheduler: Decides which ready job to run<br>
+Metric: measurement of scheduling quality</p>
+<h2 id="scheduler-anti-goals">Scheduler Anti-goals</h2>
+<p>Schedulers typically try to prevent starvation</p>
+<ul>
+<li>Starvation occurs when a process is prevented from
+making progress, because another process has a resource
+it needs(if an important process always prevents a less
+important process from running on the CPU)</li>
+</ul>
+<h3 id="assumptions">ASSUMPTIONS</h3>
+<ol>
+<li>Each job runs for the same amount of time</li>
+<li>All jobs arrive at the same time</li>
+<li>All jobs only use the CPU (no I/O)</li>
+<li>Run-time of each job is known</li>
+</ol>
+<h3 id="metric-1-turnaround-time">METRIC 1: TURNAROUND TIME</h3>
+<p>Turnaround time = completion_time - arrival_time</p>
+<p>FIFO(First In First Out): Turnaround time suffers when short jobs must wait for long jobs</p>
+<p>New scheduler: SJF (Shortest Job First)</p>
+<ul>
+<li>FIFO and SJF are non-preemptive</li>
+<li>Only schedule new job when previous job voluntarily relinquishes CPU</li>
+</ul>
+<p>New scheduler:</p>
+<ul>
+<li>Preemptive: Schedule different job by taking CPU away from running job</li>
+<li>STCF (Shortest Time-to-Completion First)</li>
+</ul>
+<h3 id="metric-2-response-time">METRIC 2: RESPONSE TIME</h3>
+<p>Round robin scheduler: switch more often to reduce response time</p>
+<ul>
+<li>Trade-offs: Round robin increases turnaround time, decreases response time</li>
+<li>Tuning challenges:</li>
+<li>
+<ul>
+<li>What is a good time slice for round robin?</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>What is the overhead of context switching?</li>
+</ul>
+</li>
+</ul>
+<p>I/O AWARE SCHEDULING</p>
+<svg width="500" height="200">
+	<!-- CPU 任务条 -->
+	<text x="10" y="40" font-size="14">CPU</text>
+	
+	<!-- CPU 时间片 -->
+	<rect x="50" y="20" width="20" height="20" fill="black"/>
+	<text x="55" y="15" font-size="12">A</text>
+	
+	<rect x="70" y="20" width="20" height="20" fill="lightgray"/>
+	<text x="75" y="15" font-size="12">B</text>
+	
+	<rect x="90" y="20" width="20" height="20" fill="black"/>
+	<text x="95" y="15" font-size="12">A</text>
+	
+	<rect x="110" y="20" width="20" height="20" fill="lightgray"/>
+	<text x="115" y="15" font-size="12">B</text>
+	
+	<rect x="130" y="20" width="20" height="20" fill="black"/>
+	<text x="135" y="15" font-size="12">A</text>
+	
+	<rect x="150" y="20" width="20" height="20" fill="lightgray"/>
+	<text x="155" y="15" font-size="12">B</text>
+	
+	<rect x="170" y="20" width="20" height="20" fill="black"/>
+	<text x="175" y="15" font-size="12">A</text>
+	
+	<rect x="190" y="20" width="20" height="20" fill="lightgray"/>
+	<text x="195" y="15" font-size="12">B</text>
+	
+	<!-- 磁盘任务条 -->
+	<text x="10" y="80" font-size="14">Disk</text>
+	
+	<rect x="50" y="60" width="20" height="20" fill="black"/>
+	<rect x="90" y="60" width="20" height="20" fill="black"/>
+	<rect x="130" y="60" width="20" height="20" fill="black"/>
+	<rect x="170" y="60" width="20" height="20" fill="black"/>
+	
+	<!-- 时间轴 -->
+	<line x1="50" y1="100" x2="250" y2="100" stroke="black" stroke-width="2"/>
+	
+	<text x="45" y="120" font-size="12">0</text>
+	<text x="85" y="120" font-size="12">20</text>
+	<text x="125" y="120" font-size="12">40</text>
+	<text x="165" y="120" font-size="12">60</text>
+	<text x="205" y="120" font-size="12">80</text>
+	<text x="245" y="120" font-size="12">100</text>
+</svg>
+
+<h2 id="multi-level-feedback-queuemlfq-general-purpose-scheduler">MULTI-LEVEL FEEDBACK QUEUE(MLFQ): GENERAL PURPOSE SCHEDULER</h2>
+<p>Must support two job types with distinct goals</p>
+<ul>
+<li>“interactive” programs care about response time</li>
+<li>“batch” programs care about turnaround time</li>
+</ul>
+<p>Approach:</p>
+<ul>
+<li>Multiple levels of round-robin</li>
+<li>Each level has higher priority than lower level</li>
+<li>Can preempt them</li>
+</ul>
+<p>Rules:</p>
+<ul>
+<li>
+<h4 id="rule-1-if-prioritya--priorityb-a-runs">Rule 1: If priority(A) &gt; Priority(B) A runs</h4>
+</li>
+<li>
+<h4 id="rule-2-if-prioritya--priorityb-a--b-run-in-rr">Rule 2: If priority(A) == Priority(B), A &amp; B run in RR</h4>
+</li>
+</ul>
+<p>CHALLENGES:</p>
+<ul>
+<li>How to set priority?</li>
+<li>What do we do when a new process arrives?</li>
+<li>Does a process stay in one queue or move between queues</li>
+</ul>
+<p>Approach:</p>
+<ul>
+<li>
+<p>Use past behavior of process to predict future!</p>
+</li>
+<li>
+<p>Guess how CPU burst (job) will behave based on past CPU bursts</p>
+</li>
+<li>
+<h4 id="rule-3-processes-start-at-top-priority">Rule 3: Processes start at top priority</h4>
+</li>
+<li>
+<h4 id="rule-4-if-job-uses-whole-slice-demote-process">Rule 4: If job uses whole slice, demote process</h4>
+</li>
+</ul>
+<p>Problem: starvation</p>
+<ul>
+<li>
+<h4 id="rule-5-after-some-time-period-s-move-all-the-jobs-in-the-system-to-the-topmost-queue">Rule 5: After some time period S, move all the jobs in the system to the topmost queue</h4>
+</li>
+</ul>
+<h2 id="lottery-scheduling">Lottery scheduling</h2>
+<p>MLFQ is not fair - shorter burst gets more CPU time<br>
+Goal:  proportional (fair) share<br>
+Approach:</p>
+<ul>
+<li>give processes lottery tickets</li>
+<li>whoever wins runs</li>
+<li>higher priority =&gt; more tickets</li>
+</ul>
+<h2 id="multicore-scheduling">Multicore Scheduling</h2>
+<p>Considerations:</p>
+<ul>
+<li>Communicating across cores is expensive</li>
+<li>Communicating across nodes is more
+expensive</li>
+</ul>
+<p>Goals</p>
+<ul>
+<li>Similar properties to single-core schedulers</li>
+</ul>
+<h3 id="single-global-queue">Single global Queue</h3>
+<p>Global ready queue of all jobs</p>
+<ul>
+<li>All CPUs pull from scheduler queue</li>
+<li>
+<ul>
+<li>On interrupt</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>When a task arrives</li>
+</ul>
+</li>
+<li>Challenge: who to preempt when new task arrives?</li>
+<li>
+<ul>
+<li>Lowest priority/longest completion time task
+among running</li>
+</ul>
+</li>
+<li>Benefits:</li>
+<li>
+<ul>
+<li>Low response time - new tasks can run on any CPU</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>Global priorities: new task can preempt any CPU running lower priority</li>
+</ul>
+</li>
+<li>Drawbacks</li>
+<li>
+<ul>
+<li>Expensive communication</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>Loss of cache locality when job moves between CPUs</li>
+</ul>
+</li>
+</ul>
+<h3 id="multi-queue-scheduling">Multi-Queue Scheduling</h3>
+<ul>
+<li>Each CPU gets a ready queue</li>
+<li>Tasks assigned to a CPU at creation</li>
+</ul>
+<p>Placement policy:</p>
+<ul>
+<li>Pick the core with the shortest queue</li>
+<li>Benefits</li>
+<li>
+<ul>
+<li>No cross-core migration</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>No cross-core communication</li>
+</ul>
+</li>
+<li>Drawbacks:</li>
+<li>
+<ul>
+<li>Load imbalance</li>
+</ul>
+</li>
+</ul>
+<h3 id="per-cpu-queue-with-migration">Per-CPU Queue with Migration</h3>
+<p>Periodic rebalancer</p>
+<ul>
+<li>Move jobs from cores with many jobs to those with few jobs</li>
+</ul>
+<p>Policy: when to run</p>
+<ul>
+<li>Every few seconds</li>
+<li>When load imbalance &gt; 25%</li>
+</ul>
+<h1 id="virtualizing-memory">Virtualizing Memory</h1>
+<ul>
+<li>Motivation: Only one process runs at a time, process can destroy OS</li>
+</ul>
+<h2 id="goals">Goals</h2>
+<ul>
+<li>Transparency: Process is unaware of sharing</li>
+<li>Protection:  Cannot corrupt OS or other process memory</li>
+<li>Efficiency: Do not waste memory or slow down processes</li>
+<li>Sharing: Enable sharing between cooperating processes</li>
+</ul>
+<h2 id="abstraction-address-space">ABSTRACTION: ADDRESS SPACE</h2>
+<ul>
+<li>Static: Code and some global variables</li>
+<li>Dynamic: Stack and Heap</li>
+<li>
+<ul>
+<li>Stack:Stack grows downward</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li>Pointer between allocated and free space</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li>No fragmentation</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>Heap: Allocate from any random location: malloc(), new() etc.</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li>Heap memory consists of allocated and free areas (holes)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>
+<ul>
+<li>Order of allocation and free is unpredictable</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="problem-how-to-run-multiple-processes-simultaneously">Problem: How to run multiple processes simultaneously?</h3>
+<ol>
+<li>Time Sharing</li>
+<li>Static Relocation</li>
+<li>Base</li>
+<li>Base+Bounds</li>
+</ol>
+<h4 id="time-sharing-ridiculously-poor-performance">Time-sharing: Ridiculously poor performance</h4>
+<ul>
+<li>Better Alternative: space sharing!</li>
+<li>
+<ul>
+<li>At same time, space of memory is divided across processes</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>Remainder of solutions all use space sharing</li>
+</ul>
+</li>
+</ul>
+<h4 id="static-relocation">Static Relocation</h4>
+<p>Idea: OS rewrites each program before loading it as a process in memory</p>
+<ul>
+<li>Each rewrite for different process uses different addresses and pointers</li>
+<li>Change jumps, loads of static data</li>
+</ul>
+<p>Disadvantages:</p>
+<ul>
+<li>No protection</li>
+<li>
+<ul>
+<li>Process can destroy OS or other processes</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>No privacy</li>
+</ul>
+</li>
+<li>Cannot move address space after it has been placed</li>
+<li>
+<ul>
+<li>May not be able to allocate new process</li>
+</ul>
+</li>
+</ul>
+<h4 id="dynamic-relocation">Dynamic Relocation</h4>
+<p>Goal: Protect processes from one another
+Requires hardware support: Memory Management Unit (MMU)</p>
+<ul>
+<li>MMU dynamically changes process address at every memory reference</li>
+<li>
+<ul>
+<li>Process generates logical or virtual addresses in their address space</li>
+</ul>
+</li>
+<li>
+<ul>
+<li>Memory hardware uses physical or real addresses</li>
+</ul>
+</li>
+</ul>
+<svg width="600" height="200">
+	<!-- CPU -->
+	<rect x="50" y="50" width="120" height="60" fill="lightblue" stroke="black" stroke-width="2"/>
+	<text x="100" y="85" font-size="14" text-anchor="middle">CPU</text>
+	<text x="50" y="40" font-size="12">Process runs here</text>
+	
+	<!-- MMU -->
+	<rect x="250" y="50" width="100" height="60" fill="lightcoral" stroke="black" stroke-width="2"/>
+	<text x="300" y="85" font-size="14" text-anchor="middle">MMU</text>
+	<text x="250" y="40" font-size="12">OS can control MMU</text>
+	
+	<!-- Memory -->
+	<rect x="420" y="50" width="120" height="60" fill="lightblue" stroke="black" stroke-width="2"/>
+	<text x="480" y="85" font-size="14" text-anchor="middle">Memory</text>
+	
+	<!-- 连接线 -->
+	<line x1="170" y1="80" x2="250" y2="80" stroke="black" stroke-width="2" marker-end="url(#arrow)"/>
+	<line x1="250" y1="80" x2="170" y2="80" stroke="black" stroke-width="2" marker-end="url(#arrow)"/>
+	<text x="170" y="70" font-size="12">Logical address</text>
+	
+	<line x1="350" y1="80" x2="420" y2="80" stroke="black" stroke-width="2" marker-end="url(#arrow)"/>
+	<line x1="420" y1="80" x2="350" y2="80" stroke="black" stroke-width="2" marker-end="url(#arrow)"/>
+	<text x="340" y="70" font-size="12">Physical address</text>
+	
+	<!-- 箭头定义 -->
+	<defs>
+		<marker id="arrow" markerWidth="6" markerHeight="6" refX="6" refY="3" orient="auto" markerUnits="strokeWidth">
+			<path d="M 0 0 L 6 3 L 0 6" fill="black"/>
+		</marker>
+	</defs>
+</svg>
+<h4 id="virtual-addresses">Virtual Addresses</h4>
+<p>To make it easier to manage memory of multiple processes, make processes use virtual addresses</p>
+<ul>
+<li>virtual addresses are independent of location in physical memory (RAM) that
+referenced data lives</li>
+<li>
+<ul>
+<li>OS determines location in physical memory</li>
+</ul>
+</li>
+<li>instructions issued by CPU reference virtual addresses</li>
+<li>
+<ul>
+<li>e.g., pointers, arguments to load/store instruction, PC, …</li>
+</ul>
+</li>
+<li>virtual addresses are translated by hardware into physical addresses (with
+some help from OS)</li>
+</ul>
+<h4 id="hardware-support-for-dynamic-relocation">Hardware Support for Dynamic Relocation</h4>
+<p>Privileged (protected,  kernel) mode: OS runs</p>
+<ul>
+<li>When enter OS (trap, system calls, interrupts,  exceptions)</li>
+<li>Allows certain instructions to be executed
+(Can manipulate contents of MMU)</li>
+<li>Allows OS to access all of physical memory</li>
+</ul>
+<p>User mode:  User processes run</p>
+<ul>
+<li>Perform translation of logical address to physical address</li>
+</ul>
+<h4 id="implementation">Implementation</h4>
+<p>Translation on every memory access of user process
+MMU adds base register to logical address to form physical address
+Translate virtual addresses to physical by adding a fixed offset each time.</p>
+<ul>
+<li>Store offset in base register</li>
+</ul>
+<p>Each process has different value in base register</p>
+<ul>
+<li>Dynamic relocation by changing value of base register!</li>
+</ul>
+<h3 id="dynamic-with-basebounds">Dynamic with Base+Bounds</h3>
+<p>Idea:  limit the address space with a bounds register</p>
+<ul>
+<li>Base register: smallest physical addr (or starting location)</li>
+<li>Bounds register: size of this process's virtual address space</li>
+<li>
+<ul>
+<li>Sometimes defined as largest physical address (base + size)
+OS kills process if process loads/stores beyond bounds</li>
+</ul>
+</li>
+</ul>
+<h4 id="implementation">Implementation</h4>
+<p>Translation on every memory access of user process</p>
+<ul>
+<li>MMU compares logical address to bounds register</li>
+<li>
+<ul>
+<li>if logical address is greater , then generate error</li>
+</ul>
+</li>
+<li>MMU adds base register to logical address to form physical address</li>
+</ul>
+<h4 id="managing-processes-with-base-and-bounds">Managing Processes with Base and Bounds</h4>
+<p>Context-switch: Add base and bounds registers to PCB</p>
+<ul>
+<li>Change to privileged mode</li>
+<li>Save base and bounds registers of old process</li>
+<li>Load base and bounds registers of new process</li>
+<li>Change to user mode and jump to new process</li>
+</ul>
+<p>Protection requirement</p>
+<ul>
+<li>User process cannot change base and bounds registers</li>
+<li>User process cannot change to privileged mode</li>
+</ul>
+<h4 id="advantages">Advantages</h4>
+<ul>
+<li>Provides protection (both read and write) across address spaces</li>
+<li>Supports dynamic relocation: can place process at different locations initially and also move address spaces</li>
+<li>Simple, inexpensive implementation: Few registers, little logic in MMU</li>
+<li>Fast:  Add and compare in parallel</li>
+</ul>
+<h4 id="disadvantages">Disadvantages</h4>
+<ul>
+<li>Each process must be allocated contiguously in physical memory: Must allocate memory that may not be used by process</li>
+<li>No partial sharing:  Cannot share parts of address space</li>
+</ul>
+
+</body>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config"> MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });</script>
+
+</html>
+
