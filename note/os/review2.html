@@ -384,7 +384,7 @@ Goal: Write applications that fully utilize many cores</p>
 </ul>
 <p>Pros?</p>
 <ul>
-<li>Don’t need new abstractions;  good for security</li>
+<li>Don't need new abstractions;  good for security</li>
 </ul>
 <p>Cons?</p>
 <ul>
@@ -428,7 +428,7 @@ threads executing different functions need different stacks</p>
 </li>
 <li>restore context of the next thread
 <ul>
-<li>pop machine state from next thread’s stack</li>
+<li>pop machine state from next thread's stack</li>
 </ul>
 </li>
 <li>return as the new thread
@@ -549,7 +549,7 @@ Performance: CPU is not used unnecessarily</p>
 <p>Code uses a single shared lock variable:   T esting lock and setting lock are not atomic</p>
 <p>Examples of atomic operations</p>
 <ul>
-<li>Code between interrupts on uniprocessors: Disable timer interrupts, don’t do any I/O</li>
+<li>Code between interrupts on uniprocessors: Disable timer interrupts, don't do any I/O</li>
 <li>Loads and stores of single words
 <ul>
 <li>Load r1,  B</li>
@@ -592,7 +592,7 @@ Performance: CPU is not used unnecessarily</p>
 }
 </div></code></pre>
 <h4 id="fairness-ticket-locks">Fairness: Ticket Locks</h4>
-<p>Idea:  reserve each thread’s turn to use a lock.<br>
+<p>Idea:  reserve each thread's turn to use a lock.<br>
 Each thread spins until their turn.<br>
 Use new atomic primitive, fetch-and-add</p>
 <pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">FetchAndAdd</span><span class="hljs-params">(<span class="hljs-keyword">int</span> *ptr)</span> </span>{
@@ -609,7 +609,7 @@ Use new atomic primitive, fetch-and-add</p>
     lock-&gt;<span class="hljs-built_in">turn</span> = <span class="hljs-number">0</span>;
 }
 </div></code></pre>
-<p>Acquire: Grab ticket;  Spin while not thread’s ticket != turn<br>
+<p>Acquire: Grab ticket;  Spin while not thread's ticket != turn<br>
 Release: Advance to next turn</p>
 <pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">acquire</span><span class="hljs-params">(<span class="hljs-keyword">lock_t</span> *lock)</span> </span>{
     <span class="hljs-keyword">int</span> myturn = FAA(&amp;lock-&gt;ticket);
@@ -658,7 +658,7 @@ Release: Advance to next turn</p>
     <span class="hljs-keyword">bool</span> guard = <span class="hljs-literal">false</span>;
     <span class="hljs-keyword">queue_t</span> q;
 } LockT;
-```<span class="hljs-function">c
+<span class="hljs-function">
 <span class="hljs-keyword">void</span> <span class="hljs-title">acquire</span><span class="hljs-params">(LockT *l)</span> </span>{
     <span class="hljs-keyword">while</span> (XCHG(&amp;l-&gt;guard, <span class="hljs-literal">true</span>));
     <span class="hljs-keyword">if</span> (l-&gt;lock) {
@@ -683,7 +683,7 @@ Release: Advance to next turn</p>
 <p>Each approach is better under different circumstances<br>
 Uniprocessor</p>
 <ul>
-<li>Waiting process is scheduled → Process holding lock isn’t</li>
+<li>Waiting process is scheduled → Process holding lock isn't</li>
 <li>Waiting process should always relinquish processor</li>
 <li>Associate queue of waiters with each lock (as in previous implementation)</li>
 </ul>
@@ -702,7 +702,7 @@ Uniprocessor</p>
 <p>Theory: Bound worst-case performance;  ratio of actual/optimal<br>
 Algorithm: Spin-wait for C then block → Factor of 2 of optimal</p>
 <h3 id="concurrency-objectives">Concurrency Objectives</h3>
-<p>Mutual exclusion (e.g., A and B don’t run at same time)</p>
+<p>Mutual exclusion (e.g., A and B don't run at same time)</p>
 <ul>
 <li>solved with locks</li>
 </ul>
@@ -779,7 +779,7 @@ Producer/consumer problems are frequent in systems (e.g. web servers)</p>
 </div></code></pre>
 <h3 id="summary-rules-of-thumb-for-cvs">Summary: rules of thumb for CVs</h3>
 <ol>
-<li>Keep state in addition to CV’s</li>
+<li>Keep state in addition to CV's</li>
 <li>Always do wait/signal with lock held</li>
 <li>Whenever thread wakes from waiting, recheck state</li>
 <li>Have a condition variable per condition you want to wait on</li>
@@ -801,7 +801,7 @@ Must be conservative (acquire any lock possibly needed)
 Degenerates to just having one big lock</p>
 <h3 id="3-no-preemption">3. no preemption</h3>
 <p>Problem: Resources (e.g., locks) cannot be forcibly removed from threads that are holding them<br>
-Strategy:  if thread can’t get what it wants, release what it holds</p>
+Strategy:  if thread can't get what it wants, release what it holds</p>
 <h3 id="4-circular-wait">4. circular wait</h3>
 <p>Circular chain of threads such that each thread holds a resource (e.g., lock)
 being requested by next thread in the chain.</p>
