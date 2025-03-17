@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>review2.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+<link href="../styles.css" rel="stylesheet"/>
+<script src="../toc.js"></script>
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<nav>
+	<p>
+		<a class="m-2" href="../../my-note.html">Return to My Note</a>
+	</p>
+</nav>
+<button id="tocButton">Table of Content</button>
+<div id="tocContainer"></div>
+<h1 id="concurrency">Concurrency</h1>
+<h2 id="motivation">Motivation</h2>
+<p>CPU Trend: Same speed, but multiple cores<br>
+Goal: Write applications that fully utilize many cores</p>
+<p>Option 1:  Build apps from many communicating processes</p>
+<ul>
+<li>Example:  Chrome (process per tab)</li>
+<li>Communicate via pipe() or similar</li>
+</ul>
+<p>Pros?</p>
+<ul>
+<li>Don’t need new abstractions;  good for security</li>
+</ul>
+<p>Cons?</p>
+<ul>
+<li>Cumbersome programming</li>
+<li>High communication overheads</li>
+<li>Expensive context switching (why expensive?)</li>
+</ul>
+<h2 id="new-abstraction-thread">New abstraction: thread</h2>
+<p>Threads are like processes,  except: <strong>multiple threads of same process share an address space</strong></p>
+<h3 id="common-programming-models">Common Programming Models</h3>
+<p>Producer/consumer: Multiple producer threads create data (or work) that is handled by one of the multiple consumer threads<br>
+Pipeline: Task is divided into series of subtasks, each of which is handled in series by a different thread<br>
+Defer work with background thread:
+One thread performs non-critical work in the background (when CPU idle)</p>
+<p>Threads share code,  but each thread may be executing different code at the same time -&gt; Different Instruction Pointers<br>
+threads executing different functions need different stacks</p>
+<h3 id="thread-vs-process">THREAD VS. Process</h3>
+<p>Multiple threads within a single process share:</p>
+<ul>
+<li>Process ID (PID)</li>
+<li>Address space:  Code (instructions),  Most data (heap)</li>
+<li>Open file descriptors</li>
+<li>Current working directory</li>
+<li>User and group id</li>
+</ul>
+<p>Each thread has its own</p>
+<ul>
+<li>Thread ID (TID)</li>
+<li>Set of registers,  including Program counter and Stack pointer</li>
+<li>Stack for local variables and return addresses
+(in same address space)</li>
+</ul>
+<h3 id="thread-context-switch">Thread context switch</h3>
+<p>Like process context switch</p>
+<ul>
+<li>trap to kernel</li>
+<li>save context of currently running thread
+<ul>
+<li>push machine state onto thread stack</li>
+</ul>
+</li>
+<li>restore context of the next thread
+<ul>
+<li>pop machine state from next thread’s stack</li>
+</ul>
+</li>
+<li>return as the new thread
+<ul>
+<li>execution resumes at PC of next thread</li>
+</ul>
+</li>
+</ul>
+<h3 id="thread-api">Thread API</h3>
+<p>Variety of thread systems exist</p>
+<ul>
+<li>POSIX Pthreads</li>
+</ul>
+<p>Common thread operations</p>
+<ul>
+<li>Create</li>
+<li>Exit</li>
+<li>Join (instead of wait() for processes)</li>
+</ul>
+<h4 id="os-support-approach-1">OS Support: Approach 1</h4>
+<p>User-level threads:  Many-to-one thread mapping</p>
+<ul>
+<li>Implemented by user-level runtime libraries
+Create,  schedule,  synchronize threads at user-level</li>
+<li>OS is not aware of user-level threads
+OS thinks each process contains only a single thread of control</li>
+</ul>
+<p>Advantages</p>
+<ul>
+<li>Does not require OS support;  Portable</li>
+<li>Lower overhead thread operations since no system call</li>
+</ul>
+<p>Disadvantages?</p>
+<ul>
+<li>Cannot leverage multiprocessors</li>
+<li>Entire process blocks when one thread blocks</li>
+</ul>
+<h4 id="os-support-approach-2">OS Support: Approach 2</h4>
+<p>Kernel-level threads:  One-to-one thread mapping</p>
+<ul>
+<li>OS provides each user-level thread with a kernel thread</li>
+<li>Each kernel thread scheduled independently</li>
+<li>Thread operations (creation,  scheduling,  synchronization) performed by OS</li>
+</ul>
+<p>Advantages</p>
+<ul>
+<li>Each kernel-level thread can run in parallel on a multiprocessor</li>
+<li>When one thread blocks,  other threads from process can be scheduled</li>
+</ul>
+<p>Disadvantages</p>
+<ul>
+<li>Higher overhead for thread operations</li>
+<li>OS must scale well with increasing number of threads</li>
+</ul>
+<h4 id="non-determinism">Non-Determinism</h4>
+<p>Concurrency leads to non-deterministic results</p>
+<ul>
+<li>Different results even with same inputs</li>
+<li>race conditions</li>
+</ul>
+<h2 id="locks">Locks</h2>
+<p>Goal: Provide mutual exclusion (mutex)<br>
+Allocate and Initialize</p>
+<ul>
+<li>Pthread_mutex_t mylock = PTHREAD_MUTEX_INITIALIZER;</li>
+</ul>
+<p>Acquire</p>
+<ul>
+<li>Acquire exclusion access to lock;</li>
+<li>Wait if lock is not available  (some other process in critical section)</li>
+<li>Spin or block (relinquish CPU) while waiting</li>
+<li>Pthread_mutex_lock(&amp;mylock);</li>
+</ul>
+<p>Release</p>
+<ul>
+<li>Release exclusive access to lock; let another process enter critical
+section</li>
+<li>Pthread_mutex_unlock(&amp;mylock);</li>
+</ul>
+<h3 id="lock-implementation-goals">Lock Implementation Goals</h3>
+<p>Correctness</p>
+<ul>
+<li>Mutual exclusion: Only one thread in critical section at a time</li>
+<li>Progress (deadlock-free): If several simultaneous requests, must allow one to proceed</li>
+<li>Bounded (starvation-free): Must eventually allow each waiting thread to enter</li>
+</ul>
+<p>Fairness: Each thread waits for same amount of time<br>
+Performance: CPU is not used unnecessarily</p>
+<h3 id="implementing-synchronization">Implementing Synchronization</h3>
+<p>Atomic operation: No other instructions can be interleaved</p>
+<p>Approaches</p>
+<ul>
+<li>Disable interrupts</li>
+<li>Locks using loads/stores</li>
+<li>Using special hardware instructions</li>
+</ul>
+<h4 id="implementing-locks-w-interrupts">Implementing Locks: W/ Interrupts</h4>
+<h5 id="turn-off-interrupts-for-critical-sections">Turn off interrupts for critical sections</h5>
+<ul>
+<li>Prevent dispatcher from running another thread</li>
+<li>Code between interrupts executes atomically</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">acquire</span><span class="hljs-params">(lockT *l)</span> </span>{
+    disableInterrupts();
+}
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">release</span><span class="hljs-params">(lockT *l)</span> </span>{
+    enableInterrupts();
+}
+</div></code></pre>
+<h5 id="disadvantages">Disadvantages?</h5>
+<ul>
+<li>Only works on uniprocessors</li>
+<li>Process can keep control of CPU for arbitrary length</li>
+<li>Cannot perform other necessary work</li>
+</ul>
+<h4 id="implementing-locks-w-loadstore">Implementing LOCKS: w/ Load+Store</h4>
+<p>Code uses a single shared lock variable:   T esting lock and setting lock are not atomic</p>
+<p>Examples of atomic operations</p>
+<ul>
+<li>Code between interrupts on uniprocessors: Disable timer interrupts, don’t do any I/O</li>
+<li>Loads and stores of single words
+<ul>
+<li>Load r1,  B</li>
+<li>Store r1,  A</li>
+</ul>
+</li>
+<li>Special hw instructions
+<ul>
+<li>Test&amp;Set</li>
+<li>Compare&amp;Swap</li>
+</ul>
+</li>
+</ul>
+<h4 id="xchg-atomic-exchange-or-test-and-set">xchg: atomic exchange or test-and-set</h4>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">xchg</span><span class="hljs-params">(<span class="hljs-keyword">int</span> *addr, <span class="hljs-keyword">int</span> newval)</span> </span>{
+ <span class="hljs-keyword">int</span> old = *addr;
+ *addr = newval;
+ <span class="hljs-keyword">return</span> old;
+}
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">acquire</span><span class="hljs-params">(<span class="hljs-keyword">lock_t</span> *lock)</span> </span>{ 
+    <span class="hljs-keyword">while</span>(xchg(&amp;lock-&gt;flag, <span class="hljs-number">1</span>) == <span class="hljs-number">1</span>) ; 
+    <span class="hljs-comment">// spin-wait (do nothing) </span>
+} 
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">release</span><span class="hljs-params">(<span class="hljs-keyword">lock_t</span> *lock)</span> </span>{ 
+    lock-&gt;flag = <span class="hljs-number">0</span>; 
+} 
+</div></code></pre>
+<h4 id="other-atomic-hw-instructions">Other Atomic HW Instructions</h4>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">CompareAndSwap</span><span class="hljs-params">(<span class="hljs-keyword">int</span> *addr, <span class="hljs-keyword">int</span> expected, <span class="hljs-keyword">int</span> <span class="hljs-keyword">new</span>)</span> </span>{
+    <span class="hljs-keyword">int</span> actual = *addr;
+    <span class="hljs-keyword">if</span> (actual == expected) {
+        *addr = <span class="hljs-keyword">new</span>;
+        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+}                                                      
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">acquire</span><span class="hljs-params">(<span class="hljs-keyword">lock_t</span> *lock)</span> </span>{ 
+    <span class="hljs-keyword">while</span>(CompareAndSwap(&amp;lock-&gt;flag, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>) == <span class="hljs-number">0</span>) ; 
+    <span class="hljs-comment">// spin-wait (do nothing) </span>
+}
+</div></code></pre>
+<h4 id="fairness-ticket-locks">Fairness: Ticket Locks</h4>
+<p>Idea:  reserve each thread’s turn to use a lock.<br>
+Each thread spins until their turn.<br>
+Use new atomic primitive, fetch-and-add</p>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">FetchAndAdd</span><span class="hljs-params">(<span class="hljs-keyword">int</span> *ptr)</span> </span>{
+    <span class="hljs-keyword">int</span> old = *ptr;
+    *ptr = old + <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">return</span> old;
+}
+<span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> __<span class="hljs-title">lock_t</span> {</span>
+    <span class="hljs-keyword">int</span> ticket;
+    <span class="hljs-keyword">int</span> <span class="hljs-built_in">turn</span>;
+}
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">lock_init</span><span class="hljs-params">(<span class="hljs-keyword">lock_t</span> *lock)</span> </span>{
+    lock-&gt;ticket = <span class="hljs-number">0</span>;
+    lock-&gt;<span class="hljs-built_in">turn</span> = <span class="hljs-number">0</span>;
+}
+</div></code></pre>
+<p>Acquire: Grab ticket;  Spin while not thread’s ticket != turn<br>
+Release: Advance to next turn</p>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">acquire</span><span class="hljs-params">(<span class="hljs-keyword">lock_t</span> *lock)</span> </span>{
+    <span class="hljs-keyword">int</span> myturn = FAA(&amp;lock-&gt;ticket);
+    <span class="hljs-comment">// spin</span>
+    <span class="hljs-keyword">while</span> (lock-&gt;<span class="hljs-built_in">turn</span> != myturn);
+}
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">release</span><span class="hljs-params">(<span class="hljs-keyword">lock_t</span> *lock)</span> </span>{
+    FAA(&amp;lock-&gt;<span class="hljs-built_in">turn</span>);
+}
+</div></code></pre>
+<h4 id="spinlock-performance">Spinlock Performance</h4>
+<p>Fast when…</p>
+<ul>
+<li>many CPUs</li>
+<li>locks held a short time</li>
+<li>advantage: avoid context switch</li>
+</ul>
+<p>Slow when…</p>
+<ul>
+<li>one CPU</li>
+<li>locks held a long time</li>
+<li>disadvantage:  spinning is wasteful</li>
+</ul>
+<h4 id="ticket-lock-with-yield">Ticket Lock with yield</h4>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">acquire</span><span class="hljs-params">(<span class="hljs-keyword">lock_t</span> *lock)</span> </span>{
+    <span class="hljs-keyword">int</span> myturn = FAA(&amp;lock-&gt;ticket);
+    <span class="hljs-keyword">while</span> (lock-&gt;<span class="hljs-built_in">turn</span> != myturn)
+        <span class="hljs-built_in">yield</span>();
+}
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">release</span><span class="hljs-params">(<span class="hljs-keyword">lock_t</span> *lock)</span> </span>{
+    FAA(&amp;lock-&gt;<span class="hljs-built_in">turn</span>);
+}
+</div></code></pre>
+<p>Waste of CPU cycles?</p>
+<ul>
+<li>Without yield: O(threads * time_slice)</li>
+<li>With yield: O(threads * context_switch)</li>
+</ul>
+<p>Even with yield, spinning is slow with high thread contention</p>
+<h4 id="lock-implementation-block-when-waiting">Lock Implementation: Block when Waiting</h4>
+<p>Remove waiting threads from scheduler runnable queue
+(e.g., park() and unpark(threadID))</p>
+<p>Scheduler runs any thread that is runnable</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">typedef</span> <span class="hljs-class"><span class="hljs-keyword">struct</span> {</span>
+    <span class="hljs-keyword">bool</span> lock = <span class="hljs-literal">false</span>;
+    <span class="hljs-keyword">bool</span> guard = <span class="hljs-literal">false</span>;
+    <span class="hljs-keyword">queue_t</span> q;
+} LockT;
+```<span class="hljs-function">c
+<span class="hljs-keyword">void</span> <span class="hljs-title">acquire</span><span class="hljs-params">(LockT *l)</span> </span>{
+    <span class="hljs-keyword">while</span> (XCHG(&amp;l-&gt;guard, <span class="hljs-literal">true</span>));
+    <span class="hljs-keyword">if</span> (l-&gt;lock) {
+        qadd(l-&gt;q, tid);
+        setpark(); <span class="hljs-comment">// notify of plan</span>
+        l-&gt;guard = <span class="hljs-literal">false</span>;
+        park(); <span class="hljs-comment">// unless unpark() </span>
+    } <span class="hljs-keyword">else</span> {
+        l-&gt;lock = <span class="hljs-literal">true</span>;
+        l-&gt;guard = <span class="hljs-literal">false</span>;
+    }
+}
+
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">release</span><span class="hljs-params">(LockT *l)</span> </span>{
+    <span class="hljs-keyword">while</span> (TAS(&amp;l-&gt;guard, <span class="hljs-literal">true</span>));
+    <span class="hljs-keyword">if</span> (qempty(l-&gt;q)) l-&gt;lock = <span class="hljs-literal">false</span>;
+    <span class="hljs-keyword">else</span> unpark(qremove(l-&gt;q)); 
+    l-&gt;guard = <span class="hljs-literal">false</span>;
+}
+</div></code></pre>
+<h4 id="spin-waiting-vs-blocking">Spin-Waiting vs Blocking</h4>
+<p>Each approach is better under different circumstances<br>
+Uniprocessor</p>
+<ul>
+<li>Waiting process is scheduled → Process holding lock isn’t</li>
+<li>Waiting process should always relinquish processor</li>
+<li>Associate queue of waiters with each lock (as in previous implementation)</li>
+</ul>
+<p>Multiprocessor</p>
+<ul>
+<li>Waiting process is scheduled → Process holding lock might be</li>
+<li>Spin or block depends on how long, t,  before lock is released
+<ul>
+<li>Lock released quickly → Spin-wait</li>
+<li>Lock released slowly → Block</li>
+<li>Quick and slow are relative to context-switch cost, C</li>
+</ul>
+</li>
+</ul>
+<h5 id="two-phase-waiting">Two-Phase Waiting</h5>
+<p>Theory: Bound worst-case performance;  ratio of actual/optimal<br>
+Algorithm: Spin-wait for C then block → Factor of 2 of optimal</p>
+<h3 id="concurrency-objectives">Concurrency Objectives</h3>
+<p>Mutual exclusion (e.g., A and B don’t run at same time)</p>
+<ul>
+<li>solved with locks</li>
+</ul>
+<p>Ordering (e.g., B runs after A does something)</p>
+<ul>
+<li>solved with condition variables and semaphores</li>
+</ul>
+<h2 id="condition-variables">Condition Variables</h2>
+<p>Condition Variable: queue of waiting threads<br>
+B waits for a signal on CV before running</p>
+<ul>
+<li>wait(CV, …)</li>
+</ul>
+<p>A sends signal to CV when time for B to run</p>
+<ul>
+<li>signal(CV, …)</li>
+</ul>
+<p>wait(cond_t *cv, mutex_t *lock)</p>
+<ul>
+<li>requires the lock is held when wait() is called</li>
+<li>puts caller to sleep + releases the lock (atomically)</li>
+<li>when awoken, reacquires lock before returning</li>
+</ul>
+<p>signal(cond_t *cv)</p>
+<ul>
+<li>wake a single waiting thread (if &gt;= 1 thread is waiting)</li>
+<li>if there is no waiting thread, just return, doing nothing</li>
+</ul>
+<h3 id="join-implementation">Join Implementation</h3>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">thread_join</span><span class="hljs-params">()</span> </span>{
+    Mutex_lock(&amp;m);
+    <span class="hljs-keyword">if</span> (done == <span class="hljs-number">0</span>)
+        Cond_wait(&amp;c, &amp;m);
+    Mutex_unlock(&amp;m);
+}
+<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">thread_exit</span><span class="hljs-params">()</span> </span>{
+    Mutex_lock(&amp;m);
+    done = <span class="hljs-number">1</span>;
+    Cond_signal(&amp;c);
+    Mutex_unlock(&amp;m);
+}
+</div></code></pre>
+<h3 id="producerconsumer-problem">Producer/Consumer Problem</h3>
+<p>Producers generate data (like pipe writers)<br>
+Consumers grab data and process it (like pipe readers)<br>
+Producer/consumer problems are frequent in systems (e.g. web servers)</p>
+<p>General strategy use condition variables to:</p>
+<ul>
+<li>make producers wait when buffers are full</li>
+<li>make consumers wait when there is nothing to consume</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">void</span>* <span class="hljs-title">producer</span><span class="hljs-params">(<span class="hljs-keyword">void</span>* arg)</span> </span>{ 
+    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; loops; i++) { 
+        Mutex_lock(&amp;m); 
+        <span class="hljs-keyword">while</span> (numfull == <span class="hljs-built_in">max</span>) 
+            Cond_wait(&amp;empty, &amp;m); 
+        do_fill(i);  
+        Cond_signal(&amp;<span class="hljs-built_in">fill</span>); 
+        Mutex_unlock(&amp;m); 
+    }
+}
+
+<span class="hljs-function"><span class="hljs-keyword">void</span>* <span class="hljs-title">consumer</span><span class="hljs-params">(<span class="hljs-keyword">void</span>* arg)</span> </span>{ 
+    <span class="hljs-keyword">while</span> (<span class="hljs-number">1</span>) { 
+        Mutex_lock(&amp;m); 
+        <span class="hljs-keyword">while</span> (numfull == <span class="hljs-number">0</span>)
+            Cond_wait(&amp;<span class="hljs-built_in">fill</span>, &amp;m); 
+        <span class="hljs-keyword">int</span> tmp = do_get();
+        Cond_signal(&amp;empty);
+        Mutex_unlock(&amp;m); 
+    }
+}
+
+</div></code></pre>
+<h3 id="summary-rules-of-thumb-for-cvs">Summary: rules of thumb for CVs</h3>
+<ol>
+<li>Keep state in addition to CV’s</li>
+<li>Always do wait/signal with lock held</li>
+<li>Whenever thread wakes from waiting, recheck state</li>
+<li>Have a condition variable per condition you want to wait on</li>
+</ol>
+<h2 id="deadlock-theory">Deadlock Theory</h2>
+<p>Deadlocks can only happen with these four conditions:</p>
+<h3 id="1mutual-exclusion">1.mutual exclusion</h3>
+<p>Problem: Threads claim exclusive control of resources that they require<br>
+Strategy:  Eliminate locks!<br>
+Try to replace locks with atomic primitive:<br>
+Strategy:  1. save old value. 2. compute new value 3. Swap old for new if old unchanged</p>
+<h3 id="2-hold-and-wait">2. hold-and-wait</h3>
+<p>Problem: Threads hold resources allocated to them while waiting for additional resources<br>
+Strategy:  Acquire all locks atomically <strong>once</strong><br>
+How to do this?  Use a meta lock</p>
+<p>Disadvantages?<br>
+Must know ahead of time which locks will be needed
+Must be conservative (acquire any lock possibly needed)
+Degenerates to just having one big lock</p>
+<h3 id="3-no-preemption">3. no preemption</h3>
+<p>Problem: Resources (e.g., locks) cannot be forcibly removed from threads that are holding them<br>
+Strategy:  if thread can’t get what it wants, release what it holds</p>
+<h3 id="4-circular-wait">4. circular wait</h3>
+<p>Circular chain of threads such that each thread holds a resource (e.g., lock)
+being requested by next thread in the chain.</p>
+<p>Strategy:</p>
+<ul>
+<li>decide which locks should be acquired before others</li>
+<li>if A before B, never acquire A if B is already held!</li>
+<li>document this, and write code accordingly</li>
+</ul>
+
+</body>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config"> MathJax.Hub.Config({ tex2jax: {inlineMath: [['$', '$']]}, messageStyle: "none" });</script>
+
+</html>
+
